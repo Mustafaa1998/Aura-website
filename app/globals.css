@@ -627,15 +627,22 @@ button:focus-visible {
     position: fixed;
     z-index: -1;
     inset: 0;
+    /* Explicit viewport height: the scrolled nav's backdrop-filter makes it the
+       containing block, which would otherwise collapse this panel's height and
+       let its links overflow into the page. */
+    height: 100vh;
+    height: 100dvh;
     padding: 110px 22px 30px;
     background: #0a0908;
     display: flex;
     flex-direction: column;
     gap: 0;
     transform: translateY(-105%);
-    transition: transform .45s cubic-bezier(.22,1,.36,1);
+    visibility: hidden;
+    opacity: 0;
+    transition: transform .45s cubic-bezier(.22,1,.36,1), opacity .3s ease, visibility .45s;
   }
-  .mobile-panel--open { transform: none; }
+  .mobile-panel--open { transform: none; visibility: visible; opacity: 1; }
   .mobile-panel a {
     display: flex;
     justify-content: space-between;
