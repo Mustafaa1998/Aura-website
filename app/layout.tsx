@@ -1,17 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 
-const serif = Fraunces({
+const poppins = Poppins({
   subsets: ["latin"],
-  style: ["normal", "italic"],
-  variable: "--font-serif",
-  display: "swap",
-});
-
-const sans = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
   display: "swap",
 });
 
@@ -53,7 +47,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${serif.variable} ${sans.variable}`}>
+    <html lang="en" className={poppins.variable}>
       <body>
         {children}
         <noscript>

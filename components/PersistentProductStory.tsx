@@ -360,6 +360,13 @@ export function PersistentProductStory() {
         <div className="product-story__grade" aria-hidden="true" />
         <div className="product-story__vignette" aria-hidden="true" />
 
+        {/* Dark scrim on the active text side so narrative copy reads on a panel
+            instead of sitting on top of the product; the opposite side stays clear. */}
+        <div
+          className={`story-scrim story-scrim--${activeChapter?.side ?? "left"} ${activeChapter && !copyRetired ? "is-visible" : ""}`}
+          aria-hidden="true"
+        />
+
         <p className="sr-only" aria-live="polite">{chapterAnnouncement}</p>
 
         <div className="product-story__chrome shell">
